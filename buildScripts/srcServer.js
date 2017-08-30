@@ -1,10 +1,21 @@
 //Set up Express
-var express = require('express');
-var path = require('path');
-var open = require('open');
+import express from 'express';
+import path from 'path';
+import open from 'open';
+import webpack from 'webpack';
+import config from '../webpack.config.dev';
 
-var port = 3001;
-var app = express();
+/* eslint-disable no-console */
+
+const port = 3001;
+const app = express();
+const compiler = webpack(config);
+
+//Middleware
+app.use(require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    publicPath: config.output.publicPath
+}));
 
 // wenn auf rootdirectory zugegriffen wird. Wie soll reagiert werden(req(uest), res(ponse))
 app.get('/', function(req, res) {
