@@ -15,8 +15,8 @@
     "test:watch": "npm run test -- --watch"
 
   },
-  "author": "Me",
-  "license": "MIT",
+  "author": "",
+  "license": "",
   "dependencies": {
     "http-server": "^0.10.0",
     "whatwg-fetch": "1.0.0"
