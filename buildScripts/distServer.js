@@ -14,7 +14,6 @@ app.use(express.static('dist'));
 
 // wenn auf rootdirectory zugegriffen wird. Wie soll reagiert werden(req(uest), res(ponse))
 app.get('/', function(req, res) {
-    //res.sendFile: ein File schicken ausgehend vom aktuellen Ordner alias __dirname + path ../src/index.html
     res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 

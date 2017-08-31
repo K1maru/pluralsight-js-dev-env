@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import webpack from 'webpack';
-import webpackConfig from '../webpack.config.prod';
+import webpackConfig from '../webpack.config.prod.js';
 import chalk from 'chalk';
 
 process.env.NODE_ENV = 'production';
@@ -14,6 +14,7 @@ webpack(webpackConfig).run((err, stats) => {
     }
 
     const jsonStats = stats.toJson();
+
     if (jsonStats.hasErrors) {
         return jsonStats.errors.map(error => console.log(chalk.red(error)));
     }
